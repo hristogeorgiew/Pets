@@ -1,22 +1,5 @@
-nav.navbar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-self: center;  
-  letter-spacing: 0.05rem;
-  background: #234465;
-  padding: 0.8rem 1rem;
-  color: white;
-}
-#site-header > nav > section.navbar-dashboard > a{
-    list-style: none;
-    text-decoration: none;
-    align-self: center;
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: white;
-    
-}
+
+
 #site-header > nav > section.navbar-dashboard > form > input[type="text"],
 #site-header > nav > section.navbar-anonymous > ul > li:nth-child(1) > a,
 #site-header > nav > section.navbar-user > ul > li:nth-child(1),
