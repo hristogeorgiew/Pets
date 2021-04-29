@@ -2,6 +2,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import Categories from './components/Categories/Categories';
 import './App.css';
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
         <Header />
 
         <Switch>
-            <Route path="" component={} />
+            <Route path="" component={Categories} />
         </Switch>
         
         <Footer />
