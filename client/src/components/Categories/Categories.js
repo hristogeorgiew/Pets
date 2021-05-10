@@ -1,12 +1,8 @@
+import { Component } from 'react';
 import CategoryNavigation from './CategoryNavigation/CategoryNavigation';
 
-
-const Categories = ({
-    match,
-    location,
-    history
-}) => {
-    console.log(match);
+class Categories extends Component {
+    render() {
     return (
         <section class="dashboard">
                 <h1>Dashboard</h1>
@@ -51,7 +47,7 @@ const Categories = ({
                     </li>
                 </ul>
             </section>
-    );
+        );
+    }
 }
-
 export default Categories;
