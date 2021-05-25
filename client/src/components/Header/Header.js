@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -6,7 +7,7 @@ const Header = () => {
 
                 <section className="navbar-dashboard">
                     <div className="first-bar">
-                        <a href="#">Dashboard</a>
+                        <Link to="/">Dashboard</Link>
                         <a className="button" href="#">My Pets</a>
                         <a className="button" href="#">Add Pet</a>
                     </div>
