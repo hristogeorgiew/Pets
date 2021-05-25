@@ -1,52 +1,45 @@
 import { Component } from 'react';
 import CategoryNavigation from './CategoryNavigation/CategoryNavigation';
+import Pet from '../Pet/Pet';
 
 class Categories extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            pets: []
+        }
+    }
+
+    componentDidMount() {
+        fetch('http://localhost:5000/pets')
+            .then(res => res.json())
+            .then(res => this.setState({pets: res}))
+            .catch(error => console.log(error));
+    }
+
     render() {
     return (
-        <section class="dashboard">
+        <div class="dashboard">
                 <h1>Dashboard</h1>
 
                     <CategoryNavigation />
 
                 <ul class="other-pets-list">
-                    <li class="otherPet">
-                        <h3>Name: Gosho</h3>
-                        <p>Category: Cat</p>
-                        <p class="img"><img src="https://pics.clipartpng.com/Cat_PNG_Clip_Art-2580.png" /></p>
-                        <p class="description">This is not my cat Gosho</p>
-                        <div class="pet-info">
-                            <a href="#"><button class="button"><i class="fas fa-heart"></i> Pet</button></a>
-                            <a href="#"><button class="button">Details</button></a>
-                            <i class="fas fa-heart"></i> <span> 2</span>
-                        </div>
-                    </li>
-                    <li class="otherPet">
-                        <h3>Name: Gosho</h3>
-                        <p>Category: Cat</p>
-                        <p class="img"><img src="https://pics.clipartpng.com/Cat_PNG_Clip_Art-2580.png" /></p>
-                        <p class="description">This is not my cat Gosho</p>
-                        <div class="pet-info">
-                            <a href="#"><button class="button"><i class="fas fa-heart"></i> Pet</button></a>
-                            <a href="#"><button class="button">Details</button></a>
-                            <i class="fas fa-heart"></i> <span> 2</span>
-                        </div>
-
-                    </li>
-                    <li class="otherPet">
-                        <h3>Name: Kiro</h3>
-                        <p>Category: Dog</p>
-                        <p class="img"><img src="http://www.stickpng.com/assets/images/580b57fbd9996e24bc43bbde.png" />
-                        </p>
-                        <p class="description">This is my dog Kiro</p>
-                        <div class="pet-info">
-                            <a href="#"><button class="button"><i class="fas fa-heart"></i> Pet</button></a>
-                            <a href="#"><button class="button">Details</button></a>
-                            <i class="fas fa-heart"></i> <span> 4</span>
-                        </div>
-                    </li>
+                    {this.state.pets.map(x => 
+                        <Pet 
+                            key={x.id}
+                            id={x.id} 
+                            name={x.name} 
+                            description={x.description}
+                            imageURL={x.imageURL}
+                            category={x.category}
+                            likes={x.likes}
+                        />
+                    )}
                 </ul>
-            </section>
+            </div>
         );
     }
 }
