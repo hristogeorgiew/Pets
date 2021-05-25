@@ -1,10 +1,15 @@
+const url = 'http://localhost:5000/pets'
+
 export const getAll = (category = '') => {
-    let url = 'http://localhost:5000/pets'
-    
+    let PetsUrl = url + ((category && category !== 'all') ? `?category=${category}` : '');
 
-    url += (category && category != 'all') ? `?category=${category}` : '';
+    return fetch(PetsUrl)
+        .then(res => res.json())
+        .catch(error => console.log(error));
+}
 
-    return fetch(url)
+export const getOne = (petId) => {
+    return fetch(`${url}/${petId}`)
         .then(res => res.json())
         .catch(error => console.log(error));
 }

@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 
 const Pet = ({
     id,
@@ -15,8 +16,8 @@ const Pet = ({
             </p>
             <p class="description">{description}</p>
             <div class="pet-info">
-                <a href="#"><button class="button"><i class="fas fa-heart"></i> Pet</button></a>
-                <a href="#"><button class="button">Details</button></a>
+                <Link to="#"><button class="button"><i class="fas fa-heart"></i> Pet</button></Link>
+                <Link to={`/pets/details/${id}`}><button class="button">Details</button></Link>
                 <i class="fas fa-heart"></i> <span> {likes}</span>
             </div>
         </li>
