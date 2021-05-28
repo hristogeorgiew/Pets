@@ -5,7 +5,10 @@ class Demo extends Component {
         super(props)
 
         this.state = {
-            username: ''
+            username: '',
+            age: 18,
+            bio: 'Lorem',
+            occupation: 'zzz'
         }
     }
 
@@ -15,8 +18,23 @@ class Demo extends Component {
         console.log(e.target.age.value);
     }
 
-    onUsernameChangeHandler(e){
-        this.setState({username: e.target.value})
+    onSubmitHandlerTwo(e) {
+        e.preventDefault();
+        const {username, age} = this.state;
+        console.log(username);
+        console.log(age);
+    }
+
+   //onUsernameChangeHandler(e){
+   //    this.setState({username: e.target.value})
+   //}
+
+   //onAgeChangeHandler(e){
+   //    this.setState({age: e.target.value})
+   //}
+
+    onChangeHandler(e) {
+        this.setState({[e.target.name]: e.target.value});
     }
 
 
@@ -27,11 +45,21 @@ render() {
 
             <form onSubmit={this.onSubmitHandler}>
                 <label htmlFor="username">User Name:</label>
-                <input id="username" type="text" value={this.state.username} name="username" onChange={this.onUsernameChangeHandler.bind(this)} />
+                <input id="username" type="text" value={this.state.username} name="username" onChange={this.onChangeHandler.bind(this)} />
                 <label htmlFor="age">Age:</label>
-                <input id="age" type="number" name="age" defaultValue="18" />
+                <input id="age" type="number" name="age" value={this.state.age} onChange={this.onChangeHandler.bind(this)} />
+
+                <label htmlFor="occupation">Occupation</label>
+                <select name="occupation" id="occupation" onChange={this.onChangeHandler.bind(this)} value={this.state.occupation}>
+                    <option value="it">IT</option>
+                    <option value="engineer">Engineer</option>
+                </select>
+
+                <label htmlFor="bio">Bio</label>
+                <textarea name="bio" id="bio" onChange={this.onChangeHandler.bind(this)} value={this.state.bio}></textarea>
                 <br />
                 <input type="submit" value="Изпрати" />
+                <input type="submit" value="Изпрати" onClick={this.onSubmitHandlerTwo.bind(this)}/>
             </form>
         </div>
     );
