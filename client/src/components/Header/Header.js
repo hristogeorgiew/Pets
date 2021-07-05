@@ -26,9 +26,6 @@ const Header = () => {
                 </section>
             </nav>
 
-            <style jsx>{`
-        
-            `}</style>
         </header>
     );
 }

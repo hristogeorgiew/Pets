@@ -4,7 +4,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Categories from './components/Categories/Categories';
 import PetDetails from './components/PetDetails/PetDetails';
-import DemoPage from './components/DemoPage copy 2/DemoPage';
+import DemoPage from './components/DemoPage/DemoPage';
 import './App.css';
 
 function App() {
