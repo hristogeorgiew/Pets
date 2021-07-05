@@ -10,13 +10,18 @@ class Categories extends Component {
 
         this.state = {
             pets: [],
-            currentCategory: 'all'
+            //currentCategory: 'all'
         }
     }
 
     componentDidMount() {
-       petServices.getAll()
-        .then(res => this.setState({pets: res}));
+        fetch('http://localhost:5000/pets')
+        .then(res => res.json())
+        .then(res => this.setState({pets: res}))
+        .catch(err => console.log(err));
+       //petServices.getAll()
+        //.then(res => this.setState({pets: res}));
+
     }
 
     componentDidUpdate(prevProps) {
@@ -31,13 +36,14 @@ class Categories extends Component {
     }
 
     render() {
+        console.log(this.state.pets);
     return (
-        <div class="dashboard">
+        <div className="dashboard">
                 <h1>Dashboard</h1>
 
                     <CategoryNavigation />
 
-                <ul class="other-pets-list">
+                <ul className="other-pets-list">
                     {this.state.pets.map(x => 
                         <Pet 
                             key={x.id}

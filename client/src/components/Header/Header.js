@@ -20,8 +20,8 @@ const Header = () => {
                 </section>
                 <section className="navbar-anonymous">
                     <ul>
-                        <li><a href="#"><i class="fas fa-user-plus"></i> Register</a></li>
-                        <li><a href="#"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                        <li><a href="#"><i className="fas fa-user-plus"></i> Register</a></li>
+                        <li><a href="#"><i className="fas fa-sign-in-alt"></i> Login</a></li>
                     </ul>
                 </section>
             </nav>
