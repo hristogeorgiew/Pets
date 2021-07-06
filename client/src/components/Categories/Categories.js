@@ -10,23 +10,24 @@ class Categories extends Component {
 
         this.state = {
             pets: [],
-            //currentCategory: 'all'
+            currentCategory: 'all'
         }
     }
 
+    //тук взимам всички петове
     componentDidMount() {
-        fetch('http://localhost:5000/pets')
-        .then(res => res.json())
-        .then(res => this.setState({pets: res}))
-        .catch(err => console.log(err));
-       //petServices.getAll()
-        //.then(res => this.setState({pets: res}));
+       petServices.getAll()
+        .then(res => this.setState({pets: res}));
 
     }
 
+    //тук ако променим нещо в Url
     componentDidUpdate(prevProps) {
-        const category = this.props.match.params.category;
+        //взимам от Url категорията 
+       const category = this.props.match.params.category;
 
+       //PrevProps с него ако на предните пропс, които са преди ъпдейта
+       //е било равно на текущото категори за да не се пререндерира 
         if(prevProps.match.params.category == category){
             return;
         }
@@ -36,7 +37,6 @@ class Categories extends Component {
     }
 
     render() {
-        console.log(this.state.pets);
     return (
         <div className="dashboard">
                 <h1>Dashboard</h1>
