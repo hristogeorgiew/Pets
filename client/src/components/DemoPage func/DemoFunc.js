@@ -1,7 +1,8 @@
 import {useState} from 'react';
 
-const Demo = () => {
-    const [username, setUsername] = useState('Pesho');
+const DemoFunc = () => {
+
+    const [userName, setUserName] = useState('Pesho');
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
@@ -10,7 +11,7 @@ const Demo = () => {
     }
 
     const onUsernameChangeHandler = (e) => {
-        setUsername(e.target.value)
+        setUserName(e.target.value)
     }
 
 
@@ -20,7 +21,7 @@ const Demo = () => {
 
             <form onSubmit={onSubmitHandler}>
                 <label htmlFor="username">User Name:</label>
-                <input id="username" type="text" name="username" value={username} onChange={onUsernameChangeHandler }/>
+                <input id="username" type="text" name={userName} onChange={onUsernameChangeHandler}/>
                 <label htmlFor="age">Age:</label>
                 <input id="age" type="number" name="age"/>
                 <br />
@@ -30,4 +31,4 @@ const Demo = () => {
     );
 }
 
-export default Demo;
+export default DemoFunc;
