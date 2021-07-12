@@ -1,10 +1,25 @@
 import React from 'react'
+import * as petService from '../../services/petServices';
+const CreatePet = ({
+    match,
+    history,
+    location
+}) =>  {
 
-function CreatePet() {
+    const onCreatePetSubmitHandler = (e) => {
+        e.preventDefault();
+        
+        const {name, description, imageURL, category} = e.target;
+        petService.create(name.value, description.value, imageURL.value, category.value)
+            .then(() => {
+                history.push('/');
+            })
+    }
+
     return (
     
            <section class="create">
-                <form action="#" method="post">
+                <form onSubmit={onCreatePetSubmitHandler}>
                     <fieldset>
                         <legend>Add new Pet</legend>
                         <p class="field">
@@ -33,11 +48,11 @@ function CreatePet() {
                             <label for="category">Category</label>
                             <span class="input">
                                 <select type="text" name="category">
-                                    <option>Cat</option>
-                                    <option>Dog</option>
-                                    <option>Parrot</option>
-                                    <option>Reptile</option>
-                                    <option>Other</option>
+                                    <option value="Cat">Cat</option>
+                                    <option value="Dog">Dog</option>
+                                    <option value="Parro">Parrot</option>
+                                    <option value="Reptile">Reptile</option>
+                                    <option value="Other">Other</option>
                                 </select>
                                 <span class="actions"></span>
                             </span>
