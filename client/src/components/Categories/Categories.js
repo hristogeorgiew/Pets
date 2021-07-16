@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import CategoryNavigation from './CategoryNavigation/CategoryNavigation';
-import Pet from '../Pet/Pet';
+import PetCard from '../PetCart/PetCart';
 import * as petServices from '../../services/petServices';
 
 class Categories extends Component {
@@ -45,7 +45,7 @@ class Categories extends Component {
 
                 <ul className="other-pets-list">
                     {this.state.pets.map(x => 
-                        <Pet 
+                        <PetCard 
                             key={x.id}
                             id={x.id} 
                             name={x.name} 

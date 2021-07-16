@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Categories from './components/Categories/Categories';
 import PetDetails from './components/PetDetails/PetDetails';
+import EditPetDetails from './components/EditPetDetails/EditPetDetails';
 import CreatePet from './components/CreatePet/CreatePet';
 import DemoPage from './components/DemoPage/DemoPage';
 import DemoPageTwo from './components/DemoPage copy/DemoPage';
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" exact component={Categories} />
             <Route path="/categories/:category" exact component={Categories} />
             <Route path="/pets/details/:petId" exact component={PetDetails} />
+            <Route path="/pets/details/:petId/edit" exact component={EditPetDetails} />
             <Route path="/pets/create" exact component={CreatePet}/>
             <Route path="/demo" component={DemoPageTwo} />
         </Switch>
