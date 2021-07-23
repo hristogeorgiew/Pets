@@ -30,3 +30,14 @@ export const create = (petName, description, imageURL, category) => {
         body: JSON.stringify(pet)
     })
 };
+
+export const update = (petId, pet) => {
+    //като го return ще ни върне промис
+    return fetch(`${url}/${petId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(pet)
+    });
+}
