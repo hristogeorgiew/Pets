@@ -8,15 +8,25 @@ const PetDetails = ({
 }) => {
 
     let [pet, setPet] = useState({});
+
     useEffect(() => {
         petServices.getOne(match.params.petId)
             .then(res => setPet(res));
-    }, [match])
+    }, [])
+
+    const onPetButtonClickHandler = () => {
+        let incrementedLikes = pet.likes + 1;
+        petServices.pet(match.params.petId, incrementedLikes)
+            .then((responseLikes) => {
+                setPet(state => ({...state, likes: Number(responseLikes.likes)}));
+            })
+    }
+
     return (
         <section className="detailsOtherPet">
                 <h3>{pet.name}</h3>
-                <p>Pet counter: {pet.likes} <a href="#"><button class="button"><i class="fas fa-heart"></i>
-                            Pet</button></a>
+                <p>Pet counter: {pet.likes} 
+                    <button onClick={onPetButtonClickHandler} class="button"><i class="fas fa-heart"></i> Pet</button>
                 </p>
                 <p className="img"><img src={pet.imageURL} /></p>
 				<p className="description">{pet.description}</p>

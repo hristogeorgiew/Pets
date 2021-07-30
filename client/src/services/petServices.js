@@ -19,7 +19,8 @@ export const create = (petName, description, imageURL, category) => {
         name: petName,
         description,
         imageURL,
-        category
+        category,
+        likes: 0 
     }
     
     return fetch(url, {
@@ -40,4 +41,16 @@ export const update = (petId, pet) => {
         },
         body: JSON.stringify(pet)
     });
+}
+
+export const pet = (petId, likes) => {
+    return fetch(`${url}/${petId}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({likes})
+    })
+
+    .then(res => res.json());
 }
