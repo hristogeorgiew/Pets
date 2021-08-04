@@ -2,6 +2,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import Login from './components/Login/Login';
 import Categories from './components/Categories/Categories';
 import PetDetails from './components/PetDetails/PetDetails';
 import EditPetDetails from './components/EditPetDetails/EditPetDetails';
@@ -11,6 +12,7 @@ import DemoPage from './components/DemoPage/DemoPage';
 import DemoPageTwo from './components/DemoPage copy/DemoPage';
 import DemoFunc from './components/DemoPage func/DemoFunc';
 import DemoHooks from './components/DemoHooks/DemoHooks';
+import './utils/firebase';
 import './App.css';
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
             <Route path="/pets/details/:petId/edit" exact component={EditPetDetails} />
             <Route path="/pets/create" exact component={CreatePet}/>
             <Route path="/pets/:petId/edit" exact component={EditPet}/>
+            <Route path="/login" exact component={Login}/>
             <Route path="/demo" component={DemoHooks} />
         </Switch>
         
