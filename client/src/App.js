@@ -10,6 +10,7 @@ import CreatePet from './components/CreatePet/CreatePet';
 import DemoPage from './components/DemoPage/DemoPage';
 import DemoPageTwo from './components/DemoPage copy/DemoPage';
 import DemoFunc from './components/DemoPage func/DemoFunc';
+import DemoHooks from './components/DemoHooks/DemoHooks';
 import './App.css';
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
             <Route path="/pets/details/:petId/edit" exact component={EditPetDetails} />
             <Route path="/pets/create" exact component={CreatePet}/>
             <Route path="/pets/:petId/edit" exact component={EditPet}/>
-            <Route path="/demo" component={DemoPageTwo} />
+            <Route path="/demo" component={DemoHooks} />
         </Switch>
         
         <Footer />
